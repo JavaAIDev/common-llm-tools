@@ -48,7 +48,7 @@
     <java.version>17</java.version>
     <kotlin.version>1.9.23</kotlin.version>
     <kotlin.compiler.jvmTarget>17</kotlin.compiler.jvmTarget>
-    <llm-agent-builder.version>0.1.0</llm-agent-builder.version>
+    <llm-agent-builder.version>0.1.1</llm-agent-builder.version>
   </properties>
 
   <repositories>
