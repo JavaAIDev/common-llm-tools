@@ -40,6 +40,6 @@ class ReadLocalFileTool(private val config: ReadLocalFileConfig) :
         val basePath =
             StringUtils.trimToNull(config.basePath)?.let { Paths.get(it) }
                 ?: Paths.get(".")
-        return basePath.resolve(request.filePath)
+        return basePath.resolve(request.filePath).toAbsolutePath()
     }
 }

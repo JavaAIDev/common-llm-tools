@@ -67,5 +67,6 @@ class WriteLocalFileTool(private val config: WriteLocalFileConfig) :
         )
         val filename = StringUtils.trimToNull(request.filename)
         return saveFileDir.resolve(filename ?: UUID.randomUUID().toString())
+            .toAbsolutePath()
     }
 }
