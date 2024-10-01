@@ -27,6 +27,7 @@ class WriteLocalFileTool(private val config: WriteLocalFileConfig) :
         logger.info("File to write: ${request.filename}")
         try {
             val savePath = calculateSavePath(request)
+            logger.info("File save path: ${savePath.toAbsolutePath()}")
             if (StringUtils.isNotEmpty(request.content)) {
                 Files.writeString(
                     savePath, request.content, StandardCharsets.UTF_8,
@@ -35,15 +36,13 @@ class WriteLocalFileTool(private val config: WriteLocalFileConfig) :
                 )
             } else if (StringUtils.isNotEmpty(request.url)) {
                 FileUtils.copyURLToFile(
-                    URI(request.url).toURL(),
+                    URI(request.url!!).toURL(),
                     savePath.toFile()
                 )
             }
             return WriteLocalFileResponse(
                 savePath.toAbsolutePath().toString()
-            ).also {
-                logger.info("Response: $it")
-            }
+            )
         } catch (e: Exception) {
             throw ToolExecutionException(this, e)
         }
@@ -59,9 +58,7 @@ class WriteLocalFileTool(private val config: WriteLocalFileConfig) :
 
     private fun calculateSavePath(request: WriteLocalFileRequest): Path {
         val basePath = StringUtils.trimToNull(config.basePath)
-        val saveFileDir = basePath?.run {
-            Path.of(this)
-        } ?: Path.of(".")
+        val saveFileDir = Path.of(basePath ?: ".")
         val filename = StringUtils.trimToNull(request.filename)
         return saveFileDir.resolve(filename ?: UUID.randomUUID().toString())
             .toAbsolutePath()
