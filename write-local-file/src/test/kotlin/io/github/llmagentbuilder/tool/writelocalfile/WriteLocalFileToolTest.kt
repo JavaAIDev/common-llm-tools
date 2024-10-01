@@ -14,8 +14,8 @@ class WriteLocalFileToolTest {
         val content = "world"
         val request = WriteLocalFileRequest("hello.txt", null, content, false)
         val response = tool.apply(request)
-        assertNotNull(response.path())
-        assertEquals(content, Files.readString(Path.of(response.path())))
+        assertNotNull(response.path)
+        assertEquals(content, Files.readString(Path.of(response.path)))
     }
 
     @Test
@@ -27,6 +27,6 @@ class WriteLocalFileToolTest {
             false
         )
         val response = tool.apply(request)
-        assertNotNull(response.path())
+        assertNotNull(response.path)
     }
 }

@@ -31,7 +31,7 @@ class WriteLocalFileTool(private val config: WriteLocalFileConfig) :
                 Files.writeString(
                     savePath, request.content, StandardCharsets.UTF_8,
                     StandardOpenOption.CREATE,
-                    if (request.append) StandardOpenOption.APPEND else StandardOpenOption.TRUNCATE_EXISTING
+                    if (request.append == true) StandardOpenOption.APPEND else StandardOpenOption.TRUNCATE_EXISTING
                 )
             } else if (StringUtils.isNotEmpty(request.url)) {
                 FileUtils.copyURLToFile(
