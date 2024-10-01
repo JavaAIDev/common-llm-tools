@@ -9,7 +9,6 @@ import java.net.URI
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Path
-import java.nio.file.Paths
 import java.nio.file.StandardOpenOption
 import java.util.*
 
@@ -30,13 +29,13 @@ class WriteLocalFileTool(private val config: WriteLocalFileConfig) :
             val savePath = calculateSavePath(request)
             if (StringUtils.isNotEmpty(request.content)) {
                 Files.writeString(
-                    savePath, request.content(), StandardCharsets.UTF_8,
+                    savePath, request.content, StandardCharsets.UTF_8,
                     StandardOpenOption.CREATE,
                     if (request.append) StandardOpenOption.APPEND else StandardOpenOption.TRUNCATE_EXISTING
                 )
             } else if (StringUtils.isNotEmpty(request.url)) {
                 FileUtils.copyURLToFile(
-                    URI(request.url()).toURL(),
+                    URI(request.url).toURL(),
                     savePath.toFile()
                 )
             }
@@ -61,10 +60,8 @@ class WriteLocalFileTool(private val config: WriteLocalFileConfig) :
     private fun calculateSavePath(request: WriteLocalFileRequest): Path {
         val basePath = StringUtils.trimToNull(config.basePath)
         val saveFileDir = basePath?.run {
-            Paths.get(this)
-        } ?: Files.createTempDirectory(
-            "${toolName}_"
-        )
+            Path.of(this)
+        } ?: Path.of(".")
         val filename = StringUtils.trimToNull(request.filename)
         return saveFileDir.resolve(filename ?: UUID.randomUUID().toString())
             .toAbsolutePath()
