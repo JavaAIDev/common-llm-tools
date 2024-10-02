@@ -12,9 +12,9 @@ import java.nio.file.Path
 import java.nio.file.StandardOpenOption
 import java.util.*
 
-const val toolName = "writeLocalFile"
+const val toolId = "writeLocalFile"
 
-class WriteLocalFileTool(private val config: WriteLocalFileConfig) :
+class WriteLocalFileTool(private val config: WriteLocalFileConfig?) :
     ConfigurableAgentTool<WriteLocalFileRequest, WriteLocalFileResponse, WriteLocalFileConfig> {
 
     private val logger = LoggerFactory.getLogger(javaClass)
@@ -48,16 +48,20 @@ class WriteLocalFileTool(private val config: WriteLocalFileConfig) :
         }
     }
 
+    override fun id(): String {
+        return toolId
+    }
+
     override fun description(): String {
-        return "write content to a local file, or download content from a url then write to a local file"
+        return "Write content to a local file, or download content from a url then write to a local file"
     }
 
     override fun name(): String {
-        return toolName
+        return "Write local file"
     }
 
     private fun calculateSavePath(request: WriteLocalFileRequest): Path {
-        val basePath = StringUtils.trimToNull(config.basePath)
+        val basePath = StringUtils.trimToNull(config?.basePath)
         val saveFileDir = Path.of(basePath ?: ".")
         val filename = StringUtils.trimToNull(request.filename)
         return saveFileDir.resolve(filename ?: UUID.randomUUID().toString())

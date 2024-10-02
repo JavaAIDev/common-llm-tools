@@ -20,7 +20,11 @@ class WriteLocalFileToolTest {
 
     @Test
     fun testDownload() {
-        val tool = WriteLocalFileToolFactory().create()
+        val tool = WriteLocalFileToolFactory().create(
+            WriteLocalFileConfig(
+                Files.createTempDirectory("test").toAbsolutePath().toString()
+            )
+        )
         val request = WriteLocalFileRequest(
             "hello.txt", "http://www.baidu.com",
             null,

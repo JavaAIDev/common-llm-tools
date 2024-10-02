@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory
 import java.nio.file.Path
 import java.nio.file.Paths
 
-const val toolName = "readLocalFile"
+const val toolId = "readLocalFile"
 
-class ReadLocalFileTool(private val config: ReadLocalFileConfig) :
+class ReadLocalFileTool(private val config: ReadLocalFileConfig?) :
     ConfigurableAgentTool<ReadLocalFileRequest, ReadLocalFileResponse, ReadLocalFileConfig> {
 
     private val logger = LoggerFactory.getLogger(javaClass)
@@ -23,9 +23,13 @@ class ReadLocalFileTool(private val config: ReadLocalFileConfig) :
             FileUtils.readFileToString(
                 getFilePath(
                     request
-                ).toFile(), config.charset ?: "UTF-8"
+                ).toFile(), config?.charset ?: "UTF-8"
             )
         )
+    }
+
+    override fun id(): String {
+        return toolId
     }
 
     override fun description(): String {
@@ -33,12 +37,12 @@ class ReadLocalFileTool(private val config: ReadLocalFileConfig) :
     }
 
     override fun name(): String {
-        return toolName
+        return "Read local file"
     }
 
     private fun getFilePath(request: ReadLocalFileRequest): Path {
         val basePath =
-            StringUtils.trimToNull(config.basePath)?.let { Paths.get(it) }
+            StringUtils.trimToNull(config?.basePath)?.let { Paths.get(it) }
                 ?: Paths.get(".")
         return basePath.resolve(request.filePath).toAbsolutePath()
     }
