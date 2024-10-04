@@ -57,12 +57,13 @@ class WriteLocalFileTool(private val config: WriteLocalFileConfig?) :
     }
 
     override fun name(): String {
-        return "Write local file"
+        return toolId
     }
 
     private fun calculateSavePath(request: WriteLocalFileRequest): Path {
         val basePath = StringUtils.trimToNull(config?.basePath)
         val saveFileDir = Path.of(basePath ?: ".")
+        Files.createDirectories(saveFileDir)
         val filename = StringUtils.trimToNull(request.filename)
         return saveFileDir.resolve(filename ?: UUID.randomUUID().toString())
             .toAbsolutePath()

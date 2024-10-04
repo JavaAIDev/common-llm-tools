@@ -37,7 +37,7 @@ class ReadLocalFileTool(private val config: ReadLocalFileConfig?) :
     }
 
     override fun name(): String {
-        return "Read local file"
+        return toolId
     }
 
     private fun getFilePath(request: ReadLocalFileRequest): Path {
