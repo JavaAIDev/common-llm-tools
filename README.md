@@ -5,4 +5,8 @@ Tools:
 * `readLocalFile`
 * `writeLocalFile`
 * `runSqlQuery`
-
+* `baiduHotSearch`
+* `baiduSearch`
+* `executeJavaCode`
+* `executePythonCode`
+* `extractWebPageContent`

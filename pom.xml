@@ -10,7 +10,7 @@
   <packaging>pom</packaging>
   <name>LLM Agent Builder :: Tools</name>
   <description>LLM Agent Builder :: Tools</description>
-  <url>https://github.com/LLMAgentBuilder/toolkit-file</url>
+  <url>https://github.com/LLMAgentBuilder/tools</url>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -27,12 +27,12 @@
 
   <scm>
     <connection>
-      scm:git:git://github.com/LLMAgentBuilder/toolkit-file.git
+      scm:git:git://github.com/LLMAgentBuilder/tools.git
     </connection>
     <developerConnection>
-      scm:git:ssh://github.com:LLMAgentBuilder/toolkit-file.git
+      scm:git:ssh://github.com:LLMAgentBuilder/tools.git
     </developerConnection>
-    <url>http://github.com/LLMAgentBuilder/toolkit-file</url>
+    <url>http://github.com/LLMAgentBuilder/tools</url>
   </scm>
 
   <modules>
