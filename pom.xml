@@ -6,7 +6,7 @@
 
   <groupId>io.github.llmagentbuilder</groupId>
   <artifactId>tools</artifactId>
-  <version>0.2.1</version>
+  <version>0.2.2</version>
   <packaging>pom</packaging>
   <name>LLM Agent Builder :: Tools</name>
   <description>LLM Agent Builder :: Tools</description>
