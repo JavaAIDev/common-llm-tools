@@ -9,9 +9,17 @@
     <version>0.2.0</version>
   </parent>
 
-  <artifactId>tool-read-local-file</artifactId>
-  <name>LLM Agent Builder :: Tool :: Read Local File</name>
-  <description>LLM Agent Builder :: Tool :: Read Local File</description>
+  <artifactId>tool-extract-web-page-content</artifactId>
+  <name>LLM Agent Builder :: Tool :: Extract Web Page Content</name>
+  <description>LLM Agent Builder :: Tool :: Extract Web Page Content
+  </description>
 
+  <dependencies>
+    <dependency>
+      <groupId>io.github.llmagentbuilder</groupId>
+      <artifactId>web-scraper</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
 
 </project>

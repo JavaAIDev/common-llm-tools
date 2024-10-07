@@ -1,6 +1,8 @@
-# LLM Agent Builder Toolkit - File
+# LLM Agent Builder Tools
 
-Tools in this toolkit:
+Tools:
 
 * `readLocalFile`
 * `writeLocalFile`
+* `runSqlQuery`
+

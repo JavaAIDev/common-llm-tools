@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.llmagentbuilder</groupId>
-  <artifactId>toolkit-file</artifactId>
+  <artifactId>tools</artifactId>
   <version>0.2.0</version>
   <packaging>pom</packaging>
-  <name>LLM Agent Builder :: Toolkit :: File</name>
-  <description>LLM Agent Builder :: Toolkit :: File</description>
+  <name>LLM Agent Builder :: Tools</name>
+  <description>LLM Agent Builder :: Tools</description>
   <url>https://github.com/LLMAgentBuilder/toolkit-file</url>
   <licenses>
     <license>
@@ -38,6 +38,14 @@
   <modules>
     <module>read-local-file</module>
     <module>write-local-file</module>
+    <module>run-sql-query</module>
+    <module>baidu-hot-search</module>
+    <module>baidu-search</module>
+    <module>extract-web-page-content</module>
+    <module>web-scraper</module>
+    <module>code-execution</module>
+    <module>code-executor-java</module>
+    <module>code-executor-python</module>
   </modules>
 
   <properties>
