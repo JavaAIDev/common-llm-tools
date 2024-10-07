@@ -2,6 +2,9 @@ package io.github.llmagentbuilder.tool.baiduhotsearch
 
 import io.github.llmagentbuilder.core.tool.ConfigurableAgentToolFactory
 
+/**
+ * Factory to create baidu hot search tool
+ */
 class BaiduHotSearchToolFactory :
     ConfigurableAgentToolFactory<BaiduHotSearchConfig, BaiduHotSearchTool> {
     override fun toolId(): String {

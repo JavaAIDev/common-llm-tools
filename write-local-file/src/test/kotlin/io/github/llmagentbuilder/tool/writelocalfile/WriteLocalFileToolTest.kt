@@ -10,7 +10,11 @@ class WriteLocalFileToolTest {
     @Test
     @Throws(IOException::class)
     fun testWriteContent() {
-        val tool = WriteLocalFileToolFactory().create()
+        val tool = WriteLocalFileToolFactory().create(
+            WriteLocalFileConfig(
+                Files.createTempDirectory("test").toAbsolutePath().toString()
+            )
+        )
         val content = "world"
         val request = WriteLocalFileRequest("hello.txt", null, content, false)
         val response = tool.apply(request)

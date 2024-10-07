@@ -6,6 +6,9 @@ import org.slf4j.LoggerFactory
 
 const val toolId = "baiduHotSearch"
 
+/**
+ * Baidu hot search tool
+ */
 class BaiduHotSearchTool(private val config: BaiduHotSearchConfig?) :
     ConfigurableAgentTool<BaiduHotSearchRequest, BaiduHotSearchResponse, BaiduHotSearchConfig> {
 
