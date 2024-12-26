@@ -6,7 +6,7 @@
 
   <groupId>io.github.llmagentbuilder</groupId>
   <artifactId>tools</artifactId>
-  <version>0.2.2</version>
+  <version>0.4.0</version>
   <packaging>pom</packaging>
   <name>LLM Agent Builder :: Tools</name>
   <description>LLM Agent Builder :: Tools</description>
@@ -54,9 +54,9 @@
     <java.version>21</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <kotlin.version>1.9.23</kotlin.version>
+    <kotlin.version>2.1.0</kotlin.version>
     <kotlin.compiler.jvmTarget>${java.version}</kotlin.compiler.jvmTarget>
-    <llm-agent-builder.version>0.2.0</llm-agent-builder.version>
+    <llm-agent-builder.version>0.4.0</llm-agent-builder.version>
   </properties>
 
   <repositories>
@@ -164,7 +164,7 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.5.8</version>
+      <version>1.5.15</version>
       <scope>test</scope>
     </dependency>
 
