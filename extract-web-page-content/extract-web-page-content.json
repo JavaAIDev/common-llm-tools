@@ -1,0 +1,38 @@
+{
+  "definition": {
+    "name": "Extract web page content",
+    "description": "Extract web page content from given url",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "Url of the web page to extract content"
+        }
+      }
+    },
+    "returnType": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "Content of the web page"
+        },
+        "error": {
+          "type": "string",
+          "description": "Error message when this web page cannot be loaded"
+        }
+      }
+    }
+  },
+  "configuration": {
+    "type": "object",
+    "properties": {
+      "sizeLimit": {
+        "type": "integer",
+        "description": "Size limit of returned content",
+        "default": 1000
+      }
+    }
+  }
+}

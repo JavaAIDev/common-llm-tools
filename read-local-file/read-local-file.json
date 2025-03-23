@@ -1,0 +1,42 @@
+{
+  "definition": {
+    "name": "Read local file",
+    "description": "Read a local file",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "filePath": {
+          "type": "string",
+          "description": "Path of the file to read"
+        }
+      }
+    },
+    "returnType": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "Content of this file"
+        },
+        "error": {
+          "type": "string",
+          "description": "Error message when this file cannot be read"
+        }
+      }
+    }
+  },
+  "configuration": {
+    "type": "object",
+    "properties": {
+      "basePath": {
+        "type": "string",
+        "description": "Base directory of the file"
+      },
+      "charset": {
+        "type": "string",
+        "description": "Charset to read this file",
+        "default": "UTF-8"
+      }
+    }
+  }
+}

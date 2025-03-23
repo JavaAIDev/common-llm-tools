@@ -1,0 +1,51 @@
+{
+  "definition": {
+    "name": "Write local file",
+    "description": "Write content to a local file",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "description": "Name of the file to write"
+        },
+        "content": {
+          "type": "string",
+          "description": "Content of the file"
+        },
+        "append": {
+          "type": "boolean",
+          "description": "Should the content be appended to the file"
+        }
+      },
+      "required": ["content"]
+    },
+    "returnType": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Path of the file when succeeded"
+        },
+        "error": {
+          "type": "string",
+          "description": "Error message when this file cannot be written"
+        }
+      }
+    }
+  },
+  "configuration": {
+    "type": "object",
+    "properties": {
+      "basePath": {
+        "type": "string",
+        "description": "Base directory to write files"
+      },
+      "charset": {
+        "type": "string",
+        "description": "Charset to read this file",
+        "default": "UTF-8"
+      }
+    }
+  }
+}

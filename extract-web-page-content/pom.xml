@@ -1,25 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>io.github.llmagentbuilder</groupId>
-    <artifactId>tools</artifactId>
-    <version>0.4.0</version>
-  </parent>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>tool-extract-web-page-content</artifactId>
-  <name>LLM Agent Builder :: Tool :: Extract Web Page Content</name>
-  <description>LLM Agent Builder :: Tool :: Extract Web Page Content
-  </description>
+    
+    <parent>
+      <groupId>com.javaaidev.easyllmtools</groupId>
+      <artifactId>common-llm-tools</artifactId>
+      <version>0.5.0</version>
+    </parent>
+    
 
-  <dependencies>
-    <dependency>
-      <groupId>io.github.llmagentbuilder</groupId>
-      <artifactId>web-scraper</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-  </dependencies>
+    <groupId>com.javaaidev.easyllmtools.tools</groupId>
+    <artifactId>extract-web-page-content</artifactId>
+    <version>0.5.0</version>
+    <packaging>jar</packaging>
 
+    <name>ExtractWebPageContent</name>
+    <description>Extract web page content from given url</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.javaaidev.easyllmtools</groupId>
+            <artifactId>llm-tool-spec</artifactId>
+            <version>0.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.javaaidev.easyllmtools</groupId>
+            <artifactId>web-scraper</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+      <sourceDirectory>src/main/java</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

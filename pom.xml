@@ -4,9 +4,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.github.llmagentbuilder</groupId>
-  <artifactId>tools</artifactId>
-  <version>0.4.0</version>
+  <groupId>com.javaaidev.easyllmtools</groupId>
+  <artifactId>common-llm-tools</artifactId>
+  <version>0.5.0</version>
   <packaging>pom</packaging>
   <name>LLM Agent Builder :: Tools</name>
   <description>LLM Agent Builder :: Tools</description>
@@ -57,6 +57,7 @@
     <kotlin.version>2.1.0</kotlin.version>
     <kotlin.compiler.jvmTarget>${java.version}</kotlin.compiler.jvmTarget>
     <llm-agent-builder.version>0.4.0</llm-agent-builder.version>
+    <llm-tool-spec.version>0.1.5</llm-tool-spec.version>
   </properties>
 
   <repositories>
@@ -141,6 +142,11 @@
   </build>
 
   <dependencies>
+    <dependency>
+      <groupId>com.javaaidev.easyllmtools</groupId>
+      <artifactId>llm-tool-spec</artifactId>
+      <version>${llm-tool-spec.version}</version>
+    </dependency>
     <dependency>
       <groupId>io.github.llmagentbuilder</groupId>
       <artifactId>core</artifactId>
